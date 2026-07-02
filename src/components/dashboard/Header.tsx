@@ -1,16 +1,29 @@
 
 "use client"
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Bell, Plus } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 export function Header() {
+  const [greeting, setGreeting] = useState('Good morning');
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+      setGreeting('Good morning');
+    } else if (hour < 18) {
+      setGreeting('Good afternoon');
+    } else {
+      setGreeting('Good evening');
+    }
+  }, []);
+
   return (
     <header className="flex items-center justify-between mb-8">
       <div>
-        <h2 className="text-3xl font-headline font-semibold text-foreground">Good morning, Adnan 👋</h2>
+        <h2 className="text-3xl font-headline font-semibold text-foreground">{greeting}, Adnan 👋</h2>
         <p className="text-xs font-headline italic text-muted-foreground mt-1">Ready to craft something beautiful today?</p>
       </div>
 
