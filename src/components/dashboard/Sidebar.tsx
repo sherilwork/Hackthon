@@ -1,3 +1,4 @@
+
 "use client"
 
 import React from 'react';
@@ -57,11 +58,11 @@ export function Sidebar() {
       <div className="mt-auto space-y-6">
         <div className="flex items-center gap-3 px-2 py-2 hover:bg-secondary/40 rounded-xl transition-colors cursor-pointer group">
           <Avatar className="h-9 w-9 border border-border">
-            <AvatarImage src="https://picsum.photos/seed/adnan/100/100" />
-            <AvatarFallback>AD</AvatarFallback>
+            <AvatarImage src="https://picsum.photos/seed/sheril/100/100" />
+            <AvatarFallback>SH</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-semibold truncate">Adnan</p>
+            <p className="text-xs font-semibold truncate">Sheril</p>
             <p className="text-[10px] text-muted-foreground truncate">Senior Designer</p>
           </div>
           <MoreHorizontal className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />

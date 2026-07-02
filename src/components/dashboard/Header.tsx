@@ -23,7 +23,7 @@ export function Header() {
   return (
     <header className="flex items-center justify-between mb-8">
       <div>
-        <h2 className="text-3xl font-headline font-semibold text-foreground">{greeting}, Adnan 👋</h2>
+        <h2 className="text-3xl font-headline font-semibold text-foreground">{greeting}, Sheril 👋</h2>
         <p className="text-xs font-headline italic text-muted-foreground mt-1">Ready to craft something beautiful today?</p>
       </div>
 
