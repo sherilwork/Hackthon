@@ -3,7 +3,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { 
   Home, 
   Layers, 
@@ -17,7 +16,6 @@ import {
   MoreHorizontal
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const navItems = [
@@ -33,8 +31,6 @@ const navItems = [
 ];
 
 export function Sidebar() {
-  const sidebarArt = PlaceHolderImages.find(img => img.id === 'sidebar-art');
-
   return (
     <aside className="w-[220px] h-full flex flex-col py-8 px-4 bg-background border-r border-border/40">
       <div className="mb-10 px-4">
@@ -60,23 +56,6 @@ export function Sidebar() {
       </nav>
 
       <div className="mt-auto space-y-6">
-        <div className="rounded-[20px] overflow-hidden bg-secondary/30 p-2">
-          {sidebarArt && (
-            <div className="relative aspect-[16/10] rounded-[18px] overflow-hidden mb-3">
-              <Image 
-                src={sidebarArt.imageUrl} 
-                alt={sidebarArt.description}
-                fill
-                className="object-cover grayscale opacity-80"
-                data-ai-hint={sidebarArt.imageHint}
-              />
-            </div>
-          )}
-          <p className="px-2 text-[10px] leading-relaxed italic text-muted-foreground font-headline text-center">
-            "The details are not the details. They make the design."
-          </p>
-        </div>
-
         <div className="flex items-center gap-3 px-2 py-2 hover:bg-secondary/40 rounded-xl transition-colors cursor-pointer group">
           <Avatar className="h-9 w-9 border border-border">
             <AvatarImage src="https://picsum.photos/seed/adnan/100/100" />
