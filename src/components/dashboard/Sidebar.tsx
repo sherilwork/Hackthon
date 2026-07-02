@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react';
@@ -34,7 +33,7 @@ export function Sidebar() {
   return (
     <aside className="w-[220px] h-full flex flex-col py-8 px-4 bg-background border-r border-border/40">
       <div className="mb-10 px-4">
-        <h1 className="text-3xl font-headline italic text-primary tracking-tight">Devora</h1>
+        <h1 className="text-3xl font-headline italic text-primary tracking-tight">Sheril</h1>
       </div>
 
       <nav className="flex-1 space-y-1">
