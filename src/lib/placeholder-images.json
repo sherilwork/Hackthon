@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "sidebar-art",
+      "description": "Minimalist landscape illustration for the sidebar",
+      "imageUrl": "https://picsum.photos/seed/devora-landscape/200/120",
+      "imageHint": "minimalist landscape"
+    },
+    {
+      "id": "botanical-stat",
+      "description": "Decorative botanical illustration for statistics card",
+      "imageUrl": "https://picsum.photos/seed/devora-botanical/150/150",
+      "imageHint": "botanical sketch"
+    },
+    {
+      "id": "zen-stones",
+      "description": "Zen stones and tiny plant for focus widget",
+      "imageUrl": "https://picsum.photos/seed/devora-zen/100/100",
+      "imageHint": "zen stones"
+    }
+  ]
 }
