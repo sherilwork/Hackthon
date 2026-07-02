@@ -2,7 +2,6 @@
 import React from 'react';
 import { Sidebar } from '@/components/dashboard/Sidebar';
 import { Header } from '@/components/dashboard/Header';
-import { HeroSection } from '@/components/dashboard/HeroSection';
 import { ActivityPanel } from '@/components/dashboard/ActivityPanel';
 import { StatsGrid } from '@/components/dashboard/StatsGrid';
 import { ProjectGrid } from '@/components/dashboard/ProjectGrid';
@@ -18,10 +17,7 @@ export default function DashboardPage() {
           <Header />
           
           <div className="flex gap-8 mb-8">
-            <div className="flex-[7]">
-              <HeroSection />
-            </div>
-            <div className="flex-[3]">
+            <div className="flex-1">
               <ActivityPanel />
             </div>
           </div>
