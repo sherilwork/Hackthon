@@ -1,88 +1,57 @@
 'use client';
 
 import React from 'react';
-import { Search, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import Image from 'next/image';
+import { GraduationCap } from 'lucide-react';
 
-const NAV_LINKS = [
+const NAV_ITEMS = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '#about' },
-  { name: 'Academics', href: '#academics' },
-  { name: 'Infrastructure', href: '#infrastructure' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'About', href: '/about' },
+  { name: 'Academics', href: '/academics' },
+  { name: 'Infrastructure', href: '/infrastructure' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export function Header() {
-  const logo = PlaceHolderImages.find(img => img.id === 'school-logo');
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top Utility Bar - Very thin and subtle */}
-      <div className="h-10 bg-foreground/5 border-b border-foreground/5 backdrop-blur-md hidden sm:flex items-center justify-between px-10">
-        <div className="flex gap-6">
-          <span className="text-[10px] font-medium tracking-widest text-foreground/40 uppercase">Global Campus</span>
-          <span className="text-[10px] font-medium tracking-widest text-foreground/40 uppercase">Research Excellence</span>
-        </div>
-        <div className="flex gap-6 items-center">
-          <a href="tel:+123456789" className="text-[10px] font-medium tracking-widest text-foreground/60 hover:text-primary transition-colors uppercase">Support</a>
-          <div className="w-px h-3 bg-foreground/10" />
-          <a href="/login" className="text-[10px] font-medium tracking-widest text-foreground/60 hover:text-primary transition-colors uppercase">Student Portal</a>
-        </div>
-      </div>
-
-      {/* Main Header */}
-      <div className="h-20 bg-background/80 backdrop-blur-xl border-b border-foreground/5 px-6 sm:px-10 flex items-center justify-between">
-        {/* Brand */}
-        <div className="flex items-center gap-5 group cursor-pointer">
-          <div className="relative w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-primary/20 transition-all duration-500 group-hover:rotate-[360deg]">
-            {logo && (
-              <Image 
-                src={logo.imageUrl} 
-                alt="Sheril Logo" 
-                fill 
-                className="object-cover p-1.5"
-                data-ai-hint={logo.imageHint}
-              />
-            )}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#FCFBF8]/80 backdrop-blur-md border-b border-[#2BB673]/10">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo Section */}
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-[#2BB673] rounded-xl flex items-center justify-center shadow-lg shadow-[#2BB673]/20">
+            <GraduationCap className="text-white w-6 h-6" />
           </div>
-          <div className="flex flex-col">
-            <span className="text-2xl font-headline font-bold tracking-tighter text-foreground leading-none">Sheril</span>
-            <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-primary -mt-0.5">Academy</span>
+          <div>
+            <h1 className="text-xl font-headline font-bold text-[#1E2433] leading-none">Sheril Academy</h1>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-[#2BB673] font-semibold mt-1">Global Excellence</p>
           </div>
         </div>
 
-        {/* Navigation - Expanded Editorial Style */}
-        <nav className="hidden xl:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="relative py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-foreground transition-all duration-300 group"
+        {/* Navigation Section */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm font-medium text-[#1E2433]/70 hover:text-[#2BB673] transition-colors relative group"
             >
-              {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
+              {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#2BB673] transition-all group-hover:w-full" />
+            </Link>
           ))}
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="rounded-full w-10 h-10 hover:bg-foreground/5 text-foreground/60"
-          >
-            <Search className="w-4 h-4" />
-          </Button>
-          
-          <Button 
-            className="hidden lg:flex h-12 px-8 bg-foreground text-background hover:bg-foreground/90 rounded-none font-bold uppercase tracking-widest text-[10px] transition-all duration-300 hover:gap-4 group"
-          >
+        {/* CTA Section */}
+        <div className="flex items-center gap-4">
+          <Link href="/admissions" className="hidden sm:block">
+            <Button variant="ghost" className="text-[#2BB673] hover:bg-[#DDF8EF] font-semibold">
+              Admissions
+            </Button>
+          </Link>
+          <Button className="bg-[#2BB673] hover:bg-[#259e64] text-white rounded-full px-6 shadow-md shadow-[#2BB673]/20 transition-all hover:scale-105">
             Apply Now
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Button>
         </div>
       </div>
