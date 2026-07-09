@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Play, Star, CheckCircle2, Trophy, GraduationCap, Users, BookOpen } from 'lucide-react';
+import { ArrowRight, Play, Star, CheckCircle2, Trophy, GraduationCap, BookOpen } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -31,7 +31,7 @@ export function HeroSection() {
         <div className="relative z-10 space-y-6">
           <h1 className="text-[48px] lg:text-[62px] leading-[1.1] font-headline font-bold text-[#10213A] tracking-[-0.03em]">
             Inspiring <span className="text-[#103D8F]">Young Minds</span> <br />
-            <span className="italic font-normal serif text-[#68768A]">for</span> <span className="text-[#FFC94D]">Tomorrow.</span>
+            for <span className="text-[#FFC94D]">Tomorrow.</span>
           </h1>
 
           <p className="max-w-md text-[15px] text-[#68768A] leading-relaxed">
