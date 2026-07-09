@@ -25,19 +25,19 @@ const ANNOUNCEMENTS = [
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center">
-      {/* Premium Marquee Announcement Bar */}
-      <div className="w-full bg-[#0F172A] py-1.5 overflow-hidden whitespace-nowrap border-b border-white/5">
+      {/* Premium Marquee Announcement Bar - Light Version */}
+      <div className="w-full bg-white/80 backdrop-blur-md py-1.5 overflow-hidden whitespace-nowrap border-b border-slate-100">
         <div className="inline-block animate-marquee">
           {ANNOUNCEMENTS.map((text, index) => (
-            <span key={index} className="inline-flex items-center px-12 text-[9px] font-medium uppercase tracking-[0.25em] text-slate-300">
-              <Sparkles className="w-2.5 h-2.5 mr-4 text-amber-400/50" />
+            <span key={index} className="inline-flex items-center px-12 text-[9px] font-bold uppercase tracking-[0.25em] text-slate-400">
+              <Sparkles className="w-2.5 h-2.5 mr-4 text-primary/30" />
               {text}
             </span>
           ))}
           {/* Duplicate for seamless loop */}
           {ANNOUNCEMENTS.map((text, index) => (
-            <span key={`dup-${index}`} className="inline-flex items-center px-12 text-[9px] font-medium uppercase tracking-[0.25em] text-slate-300">
-              <Sparkles className="w-2.5 h-2.5 mr-4 text-amber-400/50" />
+            <span key={`dup-${index}`} className="inline-flex items-center px-12 text-[9px] font-bold uppercase tracking-[0.25em] text-slate-400">
+              <Sparkles className="w-2.5 h-2.5 mr-4 text-primary/30" />
               {text}
             </span>
           ))}
