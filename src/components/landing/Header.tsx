@@ -16,41 +16,38 @@ const NAV_ITEMS = [
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#FCFBF8]/80 backdrop-blur-md border-b border-[#2BB673]/10">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center p-6 md:p-8">
+      <div className="w-full max-w-7xl h-20 bg-white/70 backdrop-blur-2xl border border-white/40 rounded-[2.5rem] flex items-center justify-between px-6 md:px-10 shadow-[0_20px_50px_rgba(0,0,0,0.04)] ring-1 ring-black/5">
         {/* Logo Section */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#2BB673] rounded-xl flex items-center justify-center shadow-lg shadow-[#2BB673]/20">
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="w-11 h-11 bg-primary rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-110">
             <GraduationCap className="text-white w-6 h-6" />
           </div>
-          <div>
-            <h1 className="text-xl font-headline font-bold text-[#1E2433] leading-none">Sheril Academy</h1>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-[#2BB673] font-semibold mt-1">Global Excellence</p>
+          <div className="hidden sm:block">
+            <h1 className="text-xl font-headline font-bold text-foreground leading-none tracking-tight">Sheril Academy</h1>
+            <p className="text-[9px] uppercase tracking-[0.3em] text-primary font-bold mt-1 opacity-70">Global Excellence</p>
           </div>
-        </div>
+        </Link>
 
         {/* Navigation Section */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center bg-secondary/40 rounded-full px-2 py-1.5 border border-white/60">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-[#1E2433]/70 hover:text-[#2BB673] transition-colors relative group"
+              className="text-[13px] font-semibold text-foreground/60 hover:text-foreground hover:bg-white rounded-full px-5 py-2 transition-all duration-300"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#2BB673] transition-all group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
         {/* CTA Section */}
-        <div className="flex items-center gap-4">
-          <Link href="/admissions" className="hidden sm:block">
-            <Button variant="ghost" className="text-[#2BB673] hover:bg-[#DDF8EF] font-semibold">
-              Admissions
-            </Button>
+        <div className="flex items-center gap-4 md:gap-8">
+          <Link href="/admissions" className="hidden lg:block text-[13px] font-bold text-foreground/70 hover:text-primary transition-colors">
+            Admissions
           </Link>
-          <Button className="bg-[#2BB673] hover:bg-[#259e64] text-white rounded-full px-6 shadow-md shadow-[#2BB673]/20 transition-all hover:scale-105">
+          <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 text-[13px] font-bold shadow-xl shadow-primary/10 transition-all hover:translate-y-[-2px] hover:shadow-2xl active:translate-y-0">
             Apply Now
           </Button>
         </div>
