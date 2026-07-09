@@ -5,7 +5,6 @@ import { Search, Menu, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
   { name: 'Philosophy', href: '#why-us' },
@@ -13,6 +12,10 @@ const NAV_LINKS = [
   { name: 'Admissions', href: '#admissions' },
   { name: 'Campus', href: '#campus' },
   { name: 'Life at Sheril', href: '#student-life' },
+  { name: 'Research', href: '#research' },
+  { name: 'News', href: '#news' },
+  { name: 'Giving', href: '#giving' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export function Header() {
@@ -54,8 +57,8 @@ export function Header() {
           </div>
         </div>
 
-        {/* Navigation - Spaced Out Editorial Style */}
-        <nav className="hidden lg:flex items-center gap-10">
+        {/* Navigation - Expanded Editorial Style */}
+        <nav className="hidden xl:flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <a
               key={link.name}
@@ -79,7 +82,7 @@ export function Header() {
           </Button>
           
           <Button 
-            className="hidden md:flex h-12 px-8 bg-foreground text-background hover:bg-foreground/90 rounded-none font-bold uppercase tracking-widest text-[10px] transition-all duration-300 hover:gap-4 group"
+            className="hidden lg:flex h-12 px-8 bg-foreground text-background hover:bg-foreground/90 rounded-none font-bold uppercase tracking-widest text-[10px] transition-all duration-300 hover:gap-4 group"
           >
             Apply Now
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -88,7 +91,7 @@ export function Header() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="lg:hidden rounded-full w-10 h-10"
+            className="xl:hidden rounded-full w-10 h-10"
           >
             <Menu className="w-5 h-5" />
           </Button>
