@@ -25,8 +25,8 @@ const ANNOUNCEMENTS = [
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center">
-      {/* Premium Marquee Announcement Bar - Refined Cream Version */}
-      <div className="w-full bg-[#FAF9F6] py-1.5 overflow-hidden whitespace-nowrap border-b border-slate-200/50">
+      {/* Premium Marquee Announcement Bar - Improved Visibility Version */}
+      <div className="w-full bg-slate-100 py-1.5 overflow-hidden whitespace-nowrap border-b border-slate-200">
         <div className="inline-block animate-marquee">
           {ANNOUNCEMENTS.map((text, index) => (
             <span key={index} className="inline-flex items-center px-12 text-[9px] font-bold uppercase tracking-[0.25em] text-primary/80">
