@@ -1,48 +1,43 @@
-
 import React from 'react';
-import { Sidebar } from '@/components/dashboard/Sidebar';
-import { Header } from '@/components/dashboard/Header';
-import { ActivityPanel } from '@/components/dashboard/ActivityPanel';
-import { StatsGrid } from '@/components/dashboard/StatsGrid';
-import { ProjectGrid } from '@/components/dashboard/ProjectGrid';
-import { DeepFocusWidget } from '@/components/dashboard/DeepFocusWidget';
+import { Header } from '@/components/landing/Header';
+import { Hero } from '@/components/landing/Hero';
+import { FeatureBar } from '@/components/landing/FeatureBar';
 
-export default function DashboardPage() {
+export default function LandingPage() {
   return (
-    <div className="flex h-screen bg-background text-foreground overflow-hidden selection:bg-accent/20">
-      <Sidebar />
+    <div className="min-h-screen bg-background selection:bg-primary/20">
+      <Header />
       
-      <main className="flex-1 overflow-y-auto relative">
-        <div className="max-w-[1400px] mx-auto p-8 animate-fade-in">
-          <Header />
-          
-          <div className="flex gap-8 mb-8">
-            <div className="flex-1">
-              <ActivityPanel />
-            </div>
+      <main>
+        <Hero />
+        <FeatureBar />
+        
+        {/* Placeholder for further sections */}
+        <div className="py-32 bg-white/50 backdrop-blur-sm mt-20">
+          <div className="max-w-[1200px] mx-auto px-8 text-center">
+            <h3 className="text-4xl font-headline font-bold mb-6 italic">Excellence in every interaction.</h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our campus is designed to be a catalyst for innovation and a sanctuary for focused learning.
+            </p>
           </div>
-
-          <StatsGrid />
-
-          <div className="flex gap-8 items-stretch">
-            <div className="flex-[8]">
-              <ProjectGrid />
-            </div>
-            <div className="flex-[2] min-w-[240px]">
-              <DeepFocusWidget />
-            </div>
-          </div>
-          
-          <footer className="mt-12 py-8 border-t border-border/40 flex justify-between items-center text-[10px] text-muted-foreground font-medium uppercase tracking-[0.2em]">
-            <span>© 2024 Devora Collective</span>
-            <div className="flex gap-6">
-              <span className="hover:text-primary cursor-pointer transition-colors">Privacy</span>
-              <span className="hover:text-primary cursor-pointer transition-colors">Terms</span>
-              <span className="hover:text-primary cursor-pointer transition-colors">Archive</span>
-            </div>
-          </footer>
         </div>
       </main>
+      
+      <footer className="py-12 border-t border-border/60">
+        <div className="max-w-[1500px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-primary/20" />
+            <span className="font-bold tracking-tight">Sheril Academy</span>
+          </div>
+          <div className="text-[10px] text-muted-foreground font-bold uppercase tracking-[0.2em]">
+            © 2024 Sheril Educational Collective. All Rights Reserved.
+          </div>
+          <div className="flex gap-8">
+            <span className="text-[11px] font-bold uppercase tracking-wider hover:text-primary cursor-pointer transition-colors">Privacy</span>
+            <span className="text-[11px] font-bold uppercase tracking-wider hover:text-primary cursor-pointer transition-colors">Contact</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

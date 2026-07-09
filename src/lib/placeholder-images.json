@@ -1,22 +1,16 @@
 {
   "placeholderImages": [
     {
-      "id": "sidebar-art",
-      "description": "Minimalist landscape illustration for the sidebar",
-      "imageUrl": "https://picsum.photos/seed/devora-landscape/200/120",
-      "imageHint": "minimalist landscape"
+      "id": "hero-students",
+      "description": "Happy students in a bright modern classroom",
+      "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600&h=1200&auto=format&fit=crop",
+      "imageHint": "students classroom"
     },
     {
-      "id": "botanical-stat",
-      "description": "Decorative botanical illustration for statistics card",
-      "imageUrl": "https://picsum.photos/seed/devora-botanical/150/150",
-      "imageHint": "botanical sketch"
-    },
-    {
-      "id": "zen-stones",
-      "description": "Zen stones and tiny plant for focus widget",
-      "imageUrl": "https://picsum.photos/seed/devora-zen/100/100",
-      "imageHint": "zen stones"
+      "id": "school-logo",
+      "description": "Minimal geometric school logo",
+      "imageUrl": "https://picsum.photos/seed/school-logo/100/100",
+      "imageHint": "geometric logo"
     }
   ]
 }
