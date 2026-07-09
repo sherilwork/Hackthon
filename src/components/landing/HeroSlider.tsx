@@ -3,7 +3,6 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import slidesData from '@/app/lib/placeholder-images.json';
 
@@ -54,38 +53,6 @@ export function HeroSlider() {
                 />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
-              </div>
-
-              {/* Content Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="max-w-5xl px-6 md:px-12 text-center text-white space-y-8">
-                  <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-                    <h1 className="text-4xl md:text-7xl lg:text-8xl font-headline font-bold leading-[1.1] tracking-tight drop-shadow-2xl">
-                      {slide.title.split(' ').map((word, i) => (
-                        <span key={i} className={i === 1 ? "text-primary italic" : ""}>{word} </span>
-                      ))}
-                    </h1>
-                    <p className="text-base md:text-xl font-light opacity-90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-                      {slide.subtitle}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
-                    <Button 
-                      size="lg" 
-                      className="rounded-full px-10 h-14 text-sm font-bold bg-primary hover:bg-primary/90 text-white shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95"
-                    >
-                      {slide.ctaPrimary}
-                    </Button>
-                    <Button 
-                      size="lg" 
-                      variant="outline" 
-                      className="rounded-full px-10 h-14 text-sm font-bold bg-white/5 backdrop-blur-md border-white/20 text-white hover:bg-white/10 transition-all hover:scale-105 active:scale-95"
-                    >
-                      {slide.ctaSecondary}
-                    </Button>
-                  </div>
-                </div>
               </div>
             </div>
           ))}
