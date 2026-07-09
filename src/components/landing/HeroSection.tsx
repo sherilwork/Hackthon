@@ -30,7 +30,7 @@ export function HeroSection() {
         {/* Left Content */}
         <div className="relative z-10 space-y-6">
           <h1 className="text-[48px] lg:text-[62px] leading-[1.1] font-headline font-bold text-[#10213A] tracking-[-0.03em]">
-            Inspiring <span className="text-[#103D8F]">Young Minds</span> <br />
+            Inspiring Young Minds <br />
             for <span className="text-[#FFC94D]">Tomorrow.</span>
           </h1>
 
