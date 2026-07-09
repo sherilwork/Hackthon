@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Search, Menu, ArrowUpRight } from 'lucide-react';
+import { Search, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
@@ -86,14 +86,6 @@ export function Header() {
           >
             Apply Now
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Button>
-
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="xl:hidden rounded-full w-10 h-10"
-          >
-            <Menu className="w-5 h-5" />
           </Button>
         </div>
       </div>
