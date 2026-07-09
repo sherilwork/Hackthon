@@ -42,7 +42,7 @@ export function HeroSlider() {
         <div className="flex h-full">
           {slides.map((slide) => (
             <div key={slide.id} className="relative flex-[0_0_100%] min-w-0 h-full">
-              {/* Image with subtle zoom animation could be added via CSS if desired */}
+              {/* Image */}
               <div className="relative w-full h-full">
                 <Image
                   src={slide.url}
@@ -60,9 +60,6 @@ export function HeroSlider() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="max-w-5xl px-6 md:px-12 text-center text-white space-y-8">
                   <div className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-[0.3em] text-white/90 mb-2">
-                      Est. 1995 • Premier Institution
-                    </span>
                     <h1 className="text-4xl md:text-7xl lg:text-8xl font-headline font-bold leading-[1.1] tracking-tight drop-shadow-2xl">
                       {slide.title.split(' ').map((word, i) => (
                         <span key={i} className={i === 1 ? "text-primary italic" : ""}>{word} </span>
