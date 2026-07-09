@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header } from '@/components/landing/Header';
-import { Hero } from '@/components/landing/Hero';
 import { FeatureBar } from '@/components/landing/FeatureBar';
 
 export default function LandingPage() {
@@ -8,8 +7,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-background selection:bg-primary/20">
       <Header />
       
-      <main>
-        <Hero />
+      <main className="pt-32">
         <FeatureBar />
         
         {/* Placeholder for further sections */}

@@ -38,7 +38,7 @@ const FEATURES = [
 
 export function FeatureBar() {
   return (
-    <div className="max-w-[1400px] mx-auto px-8 relative z-10 -mt-10">
+    <div className="max-w-[1400px] mx-auto px-8 relative z-10">
       <div className="bg-white rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-white p-10 flex flex-wrap lg:flex-nowrap items-stretch justify-between gap-8">
         {FEATURES.map((feature, idx) => (
           <div key={feature.title} className="flex-1 min-w-[200px] group">
