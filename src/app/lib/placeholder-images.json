@@ -1,0 +1,31 @@
+{
+  "heroSlides": [
+    {
+      "id": 1,
+      "url": "https://picsum.photos/seed/school1/1920/1080",
+      "hint": "modern school architecture",
+      "title": "Excellence in Education",
+      "subtitle": "Empowering the next generation of global leaders through holistic education and innovation.",
+      "ctaPrimary": "Explore Programs",
+      "ctaSecondary": "Virtual Tour"
+    },
+    {
+      "id": 2,
+      "url": "https://picsum.photos/seed/school2/1920/1080",
+      "hint": "students collaborating",
+      "title": "Nurturing Future Leaders",
+      "subtitle": "A vibrant environment where every child's unique potential is celebrated and nurtured.",
+      "ctaPrimary": "Admissions",
+      "ctaSecondary": "Academic Excellence"
+    },
+    {
+      "id": 3,
+      "url": "https://picsum.photos/seed/school3/1920/1080",
+      "hint": "school library study",
+      "title": "World-Class Infrastructure",
+      "subtitle": "State-of-the-art facilities designed to foster creativity, curiosity, and critical thinking.",
+      "ctaPrimary": "View Gallery",
+      "ctaSecondary": "Our Facilities"
+    }
+  ]
+}
