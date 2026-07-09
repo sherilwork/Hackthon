@@ -29,13 +29,6 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
         <div className="relative z-10 space-y-6">
-          <div className="animate-fade-in inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EEF5FF] border border-[#5A8BFF]/10 shadow-sm">
-            <span className="flex h-2 w-2 rounded-full bg-[#5A8BFF] animate-pulse" />
-            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#5A8BFF]">
-              ✨ Future Ready Education
-            </span>
-          </div>
-
           <h1 className="text-[48px] lg:text-[62px] leading-[1.1] font-headline font-bold text-[#10213A] tracking-[-0.03em]">
             Inspiring <br />
             <span className="text-[#103D8F]">Young Minds</span> <br />
@@ -121,7 +114,7 @@ export function HeroSection() {
             <div className="absolute bottom-1/4 -right-10 z-20 animate-float-delayed">
               <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-3 rounded-[18px] shadow-[0_10px_25px_rgba(0,0,0,0.06)] flex items-center gap-2.5 group hover:translate-y-[-2px] transition-all">
                 <div className="w-9 h-9 rounded-lg bg-[#FFC94D]/10 flex items-center justify-center text-[#FFC94D]">
-                  <GraduationCap className="w-4 h-4" />
+                  <graduationcap className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-[12px] font-bold text-[#10213A]">Ranked #1</h4>
@@ -133,7 +126,7 @@ export function HeroSection() {
             <div className="absolute -bottom-2 left-1/4 z-20">
               <div className="bg-[#103D8F] p-4 rounded-[18px] shadow-xl flex items-center gap-3 text-white">
                 <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">
-                  <BookOpen className="w-4 h-4" />
+                  <bookopen className="w-4 h-4" />
                 </div>
                 <div>
                   <h4 className="text-[13px] font-bold">Admissions Open</h4>
