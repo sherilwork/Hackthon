@@ -1,65 +1,96 @@
 'use client';
 
 import React from 'react';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Search, Menu, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
-  'Home', 'Why Us', 'Learning', 'Campus', 'Admissions', 'Student Life', 'Achievements', 'Contact'
+  { name: 'Philosophy', href: '#why-us' },
+  { name: 'Curriculum', href: '#learning' },
+  { name: 'Admissions', href: '#admissions' },
+  { name: 'Campus', href: '#campus' },
+  { name: 'Life at Sheril', href: '#student-life' },
 ];
 
 export function Header() {
   const logo = PlaceHolderImages.find(img => img.id === 'school-logo');
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-8 py-6">
-      <div className="max-w-[1500px] mx-auto flex items-center justify-between">
-        {/* Left: Logo and Brand */}
-        <div className="flex items-center gap-4 group cursor-pointer">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary overflow-hidden relative border border-white shadow-sm transition-transform duration-300 group-hover:scale-105">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top Utility Bar - Very thin and subtle */}
+      <div className="h-10 bg-foreground/5 border-b border-foreground/5 backdrop-blur-md hidden sm:flex items-center justify-between px-10">
+        <div className="flex gap-6">
+          <span className="text-[10px] font-medium tracking-widest text-foreground/40 uppercase">Global Campus</span>
+          <span className="text-[10px] font-medium tracking-widest text-foreground/40 uppercase">Research Excellence</span>
+        </div>
+        <div className="flex gap-6 items-center">
+          <a href="tel:+123456789" className="text-[10px] font-medium tracking-widest text-foreground/60 hover:text-primary transition-colors uppercase">Support</a>
+          <div className="w-px h-3 bg-foreground/10" />
+          <a href="/login" className="text-[10px] font-medium tracking-widest text-foreground/60 hover:text-primary transition-colors uppercase">Student Portal</a>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <div className="h-20 bg-background/80 backdrop-blur-xl border-b border-foreground/5 px-6 sm:px-10 flex items-center justify-between">
+        {/* Brand */}
+        <div className="flex items-center gap-5 group cursor-pointer">
+          <div className="relative w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden border border-primary/20 transition-all duration-500 group-hover:rotate-[360deg]">
             {logo && (
               <Image 
                 src={logo.imageUrl} 
-                alt="Sheril Academy Logo" 
+                alt="Sheril Logo" 
                 fill 
-                className="object-cover"
+                className="object-cover p-1.5"
                 data-ai-hint={logo.imageHint}
               />
             )}
           </div>
-          <div>
-            <h1 className="text-xl font-bold tracking-tight text-foreground leading-none mb-1">Sheril Academy</h1>
-            <p className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground font-semibold">Global Excellence</p>
+          <div className="flex flex-col">
+            <span className="text-2xl font-headline font-bold tracking-tighter text-foreground leading-none">Sheril</span>
+            <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-primary -mt-0.5">Academy</span>
           </div>
         </div>
 
-        {/* Center: Navigation - Glassmorphic Pill */}
-        <nav className="hidden xl:flex items-center bg-white/40 backdrop-blur-md border border-white/60 rounded-full px-2 py-1.5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.04)]">
+        {/* Navigation - Spaced Out Editorial Style */}
+        <nav className="hidden lg:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase().replace(' ', '-')}`}
-              className="px-5 py-2 text-sm font-medium text-foreground/70 hover:text-foreground hover:bg-white/80 rounded-full transition-all duration-300"
+              key={link.name}
+              href={link.href}
+              className="relative py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-foreground transition-all duration-300 group"
             >
-              {link}
+              {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
 
-        {/* Right: Actions */}
-        <div className="flex items-center gap-4">
+        {/* Actions */}
+        <div className="flex items-center gap-3">
           <Button 
-            variant="outline" 
+            variant="ghost" 
             size="icon" 
-            className="rounded-full w-12 h-12 border-white/60 bg-white/40 backdrop-blur-sm shadow-sm hover:scale-105 transition-transform"
+            className="rounded-full w-10 h-10 hover:bg-foreground/5 text-foreground/60"
           >
-            <Phone className="w-4 h-4 text-foreground" />
+            <Search className="w-4 h-4" />
           </Button>
-          <Button className="rounded-[18px] px-8 h-12 bg-gradient-to-r from-primary to-[#24a164] text-white font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex gap-2">
-            Book a Campus Tour
-            <ArrowRight className="w-4 h-4" />
+          
+          <Button 
+            className="hidden md:flex h-12 px-8 bg-foreground text-background hover:bg-foreground/90 rounded-none font-bold uppercase tracking-widest text-[10px] transition-all duration-300 hover:gap-4 group"
+          >
+            Apply Now
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Button>
+
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="lg:hidden rounded-full w-10 h-10"
+          >
+            <Menu className="w-5 h-5" />
           </Button>
         </div>
       </div>
