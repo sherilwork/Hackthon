@@ -1,6 +1,5 @@
 import React from 'react';
 import { Header } from '@/components/landing/Header';
-import { FeatureBar } from '@/components/landing/FeatureBar';
 
 export default function LandingPage() {
   return (
@@ -8,17 +7,7 @@ export default function LandingPage() {
       <Header />
       
       <main className="pt-32">
-        <FeatureBar />
-        
-        {/* Placeholder for further sections */}
-        <div className="py-32 bg-white/50 backdrop-blur-sm mt-20">
-          <div className="max-w-[1200px] mx-auto px-8 text-center">
-            <h3 className="text-4xl font-headline font-bold mb-6 italic">Excellence in every interaction.</h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our campus is designed to be a catalyst for innovation and a sanctuary for focused learning.
-            </p>
-          </div>
-        </div>
+        {/* Content removed as requested */}
       </main>
       
       <footer className="py-12 border-t border-border/60">
