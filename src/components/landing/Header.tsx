@@ -7,14 +7,11 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 
 const NAV_LINKS = [
-  { name: 'Philosophy', href: '#why-us' },
-  { name: 'Curriculum', href: '#learning' },
-  { name: 'Admissions', href: '#admissions' },
-  { name: 'Campus', href: '#campus' },
-  { name: 'Life at Sheril', href: '#student-life' },
-  { name: 'Research', href: '#research' },
-  { name: 'News', href: '#news' },
-  { name: 'Giving', href: '#giving' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '#about' },
+  { name: 'Academics', href: '#academics' },
+  { name: 'Infrastructure', href: '#infrastructure' },
+  { name: 'Gallery', href: '#gallery' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -58,7 +55,7 @@ export function Header() {
         </div>
 
         {/* Navigation - Expanded Editorial Style */}
-        <nav className="hidden xl:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <a
               key={link.name}
