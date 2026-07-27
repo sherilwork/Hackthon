@@ -37,6 +37,12 @@ export default function VisualLandmarkRouting() {
 
   const startCamera = useCallback(async () => {
     setCameraError(null);
+
+    if (typeof window !== 'undefined' && window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      setCameraError('Camera requires a secure connection (HTTPS). Deploy the site or use localhost.');
+      return;
+    }
+
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment', width: { ideal: 1920 }, height: { ideal: 1080 } },

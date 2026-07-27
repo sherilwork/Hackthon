@@ -36,6 +36,12 @@ export default function AILostMode() {
 
   const startCamera = async () => {
     setCameraError(null);
+
+    if (typeof window !== 'undefined' && window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      setCameraError('Camera requires a secure connection (HTTPS). Deploy the site or use localhost.');
+      return;
+    }
+
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
