@@ -12,6 +12,7 @@ const features = [
     gradient: 'from-blue-500 to-cyan-400',
     bgLight: 'bg-cyan-50',
     iconBg: 'bg-gradient-to-br from-blue-500 to-cyan-400',
+    href: '/visual-landmark-routing',
   },
   {
     icon: Box,
