@@ -1,0 +1,41 @@
+Room ID,Room Name,Building Name,Floor Number,X Coordinate,Y Coordinate,Category
+A-G-101,Physics Lab,Block A,Ground Floor,15,20,Lab
+A-G-102,Chemistry Lab,Block A,Ground Floor,25,20,Lab
+A-G-103,Computer Lab 1,Block A,Ground Floor,35,15,Lab
+A-G-104,Classroom 101,Block A,Ground Floor,15,35,Classroom
+A-G-105,Classroom 102,Block A,Ground Floor,25,35,Classroom
+A-G-106,Stationery Shop,Block A,Ground Floor,45,25,Facility
+A-G-W1,Boys Washroom,Block A,Ground Floor,50,15,Washroom
+A-G-EXIT,Main Exit A,Block A,Ground Floor,50,50,Exit
+A-F-201,HOD Office,Block A,First Floor,15,20,Office
+A-F-202,Staff Room,Block A,First Floor,25,20,Office
+A-F-203,Classroom 201,Block A,First Floor,35,15,Classroom
+A-F-204,Classroom 202,Block A,First Floor,15,35,Classroom
+A-F-205,Seminar Hall,Block A,First Floor,35,35,Facility
+A-F-W1,Girls Washroom,Block A,First Floor,50,20,Washroom
+A-F-STAIR,Staircase A,Block A,First Floor,50,45,Exit
+B-G-101,Principal Office,Block B,Ground Floor,60,20,Office
+B-G-102,Admin Office,Block B,Ground Floor,70,20,Office
+B-G-103,Accounts Office,Block B,Ground Floor,80,20,Office
+B-G-104,Reception,Block B,Ground Floor,60,35,Facility
+B-G-105,Waiting Hall,Block B,Ground Floor,70,35,Facility
+B-G-W1,Common Washroom,Block B,Ground Floor,85,30,Washroom
+B-G-EXIT,Main Exit B,Block B,Ground Floor,85,45,Exit
+B-F-201,Conference Room,Block B,First Floor,60,20,Office
+B-F-202,Exam Cell,Block B,First Floor,70,20,Office
+B-F-203,Library,Block B,First Floor,80,25,Facility
+B-F-204,Reading Room,Block B,First Floor,80,35,Facility
+B-F-W1,Staff Washroom,Block B,First Floor,85,20,Washroom
+B-F-STAIR,Staircase B,Block B,First Floor,60,45,Exit
+C-G-101,Cafeteria,Block C,Ground Floor,20,70,Facility
+C-G-102,Boys Hostel Reception,Block C,Ground Floor,30,65,Facility
+C-G-103,Room 301,Block C,Ground Floor,20,85,Classroom
+C-G-104,Room 302,Block C,Ground Floor,30,85,Classroom
+C-G-W1,Hostel Washroom,Block C,Ground Floor,40,75,Washroom
+C-G-EXIT,Hostel Exit,Block C,Ground Floor,40,60,Exit
+C-F-201,Girls Hostel Reception,Block C,First Floor,20,70,Facility
+C-F-202,Room 401,Block C,First Floor,30,65,Classroom
+C-F-203,Room 402,Block C,First Floor,20,85,Classroom
+C-F-204,Room 403,Block C,First Floor,30,85,Classroom
+C-F-W1,Girls Hostel Washroom,Block C,First Floor,40,70,Washroom
+C-F-STAIR,Staircase C,Block C,First Floor,40,60,Exit

@@ -1,0 +1,11 @@
+Query ID,User Query,Expected Intent,Expected Room ID,Language
+Q1,Where is the Physics lab?,find_room,A-G-101,English
+Q2,I need to go to the HOD office,find_room,A-F-201,English
+Q3,What's the nearest washroom from Block A ground floor?,find_nearest_washroom,A-G-W1,English
+Q4,Bhai library kahan hai?,find_room,B-F-203,Hinglish
+Q5,Show me the way to cafeteria,find_room,C-G-101,English
+Q6,Mujhe principal office jana hai,find_room,B-G-101,Hinglish
+Q7,Where can I get stationery?,find_facility,A-G-106,English
+Q8,Seminar hall kidhar hai block A mein?,find_room,A-F-205,Hinglish
+Q9,Nearest exit from computer lab,find_exit,A-G-EXIT,English
+Q10,Boys hostel reception kahan par hai?,find_room,C-G-102,Hinglish
