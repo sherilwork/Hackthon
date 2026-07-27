@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Camera, Navigation, ArrowRight, Compass, MapPin, Building2,
-  XCircle, Radar, ArrowUp, Layers, Eye, RotateCw
+  XCircle, Radar, Eye, RotateCw, ShieldAlert, RefreshCw
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -32,6 +32,7 @@ export default function VisualLandmarkRouting() {
   const [cameraError, setCameraError] = useState<string | null>(null);
   const [showOverlay, setShowOverlay] = useState(true);
   const [selectedLandmark, setSelectedLandmark] = useState<string | null>(null);
+  const [cameraStarted, setCameraStarted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
 
@@ -39,23 +40,24 @@ export default function VisualLandmarkRouting() {
     setCameraError(null);
 
     if (typeof window !== 'undefined' && window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-      setCameraError('Camera requires a secure connection (HTTPS). Deploy the site or use localhost.');
+      setCameraError('Camera requires HTTPS. Deploy the site or use localhost.');
       return;
     }
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment', width: { ideal: 1920 }, height: { ideal: 1080 } },
+        video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
       });
       streamRef.current = stream;
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
       }
+      setCameraStarted(true);
       setCameraReady(true);
     } catch (err: unknown) {
       if (err instanceof DOMException) {
         if (err.name === 'NotAllowedError') {
-          setCameraError('Camera permission denied. Please allow access.');
+          setCameraError('Camera permission denied. Please allow camera access.');
         } else if (err.name === 'NotFoundError') {
           setCameraError('No camera found on this device.');
         } else {
@@ -68,18 +70,17 @@ export default function VisualLandmarkRouting() {
   }, []);
 
   useEffect(() => {
-    startCamera();
     return () => {
       if (streamRef.current) {
         streamRef.current.getTracks().forEach((t) => t.stop());
       }
     };
-  }, [startCamera]);
+  }, []);
 
   return (
-    <main className="min-h-screen bg-black relative overflow-hidden">
+    <main className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#FAFBFF' }}>
       {/* Camera Feed */}
-      {cameraReady ? (
+      {cameraReady && (
         <video
           ref={videoRef}
           autoPlay
@@ -87,34 +88,91 @@ export default function VisualLandmarkRouting() {
           muted
           className="absolute inset-0 w-full h-full object-cover"
         />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
-          {cameraError ? (
-            <div className="text-center p-8 max-w-sm">
-              <div className="w-16 h-16 rounded-2xl bg-red-500/20 mx-auto mb-4 flex items-center justify-center">
-                <XCircle className="w-8 h-8 text-red-400" />
-              </div>
-              <p className="text-white font-semibold mb-2">Camera Error</p>
-              <p className="text-white/60 text-sm mb-6">{cameraError}</p>
-              <Button onClick={startCamera} variant="pill">
+      )}
+
+      {/* Pre-camera UI */}
+      {!cameraReady && !cameraStarted && !cameraError && (
+        <div className="min-h-screen flex items-center justify-center p-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center max-w-sm"
+          >
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500 to-cyan-400 mx-auto mb-6 flex items-center justify-center shadow-lg">
+              <Camera className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-3xl font-bold text-slate-900 mb-3">Visual Landmark Routing</h1>
+            <p className="text-slate-500 mb-8">
+              Point your camera at the campus and AI will show building names, directions and distances in real-time.
+            </p>
+            <button
+              onClick={startCamera}
+              className="w-full py-4 rounded-2xl bg-gradient-primary text-white font-semibold text-base hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+            >
+              <Camera className="w-5 h-5" />
+              Start Camera
+            </button>
+            <Link
+              href="/"
+              className="block mt-4 text-sm text-slate-400 hover:text-slate-600 transition-colors"
+            >
+              Back to Home
+            </Link>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Loading */}
+      {cameraStarted && !cameraReady && !cameraError && (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-cyan-50">
+          <div className="text-center">
+            <div className="w-16 h-16 rounded-2xl bg-blue-500/10 mx-auto mb-4 flex items-center justify-center animate-pulse">
+              <Camera className="w-8 h-8 text-blue-500" />
+            </div>
+            <p className="text-slate-600 font-medium">Starting camera...</p>
+            <p className="text-slate-400 text-sm mt-1">Please allow camera access when prompted</p>
+          </div>
+        </div>
+      )}
+
+      {/* Error */}
+      {cameraError && (
+        <div className="min-h-screen flex items-center justify-center p-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center max-w-sm"
+          >
+            <div className="w-20 h-20 rounded-3xl bg-red-50 mx-auto mb-6 flex items-center justify-center">
+              <ShieldAlert className="w-10 h-10 text-red-500" />
+            </div>
+            <h1 className="text-2xl font-bold text-slate-900 mb-3">Camera Unavailable</h1>
+            <p className="text-slate-500 mb-2">{cameraError}</p>
+            <p className="text-slate-400 text-sm mb-8">
+              Make sure your browser has camera permissions and you&apos;re on a secure connection (HTTPS).
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={startCamera}
+                className="flex-1 py-4 rounded-2xl bg-gradient-primary text-white font-semibold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <RefreshCw className="w-4 h-4" />
                 Try Again
-              </Button>
+              </button>
+              <Link
+                href="/"
+                className="py-4 px-6 rounded-2xl border-2 border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 transition-all"
+              >
+                Back
+              </Link>
             </div>
-          ) : (
-            <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-blue-500/20 mx-auto mb-4 flex items-center justify-center animate-pulse">
-                <Camera className="w-8 h-8 text-blue-400" />
-              </div>
-              <p className="text-white/60">Starting camera...</p>
-            </div>
-          )}
+          </motion.div>
         </div>
       )}
 
       {/* VR Overlay */}
       {cameraReady && showOverlay && (
         <>
-          {/* Buildings */}
           {landmarkData.map((lm) => (
             <motion.div
               key={lm.name}
@@ -126,7 +184,6 @@ export default function VisualLandmarkRouting() {
               onClick={() => setSelectedLandmark(lm.name)}
             >
               <div className="relative flex flex-col items-center">
-                {/* Direction arrow */}
                 <motion.div
                   animate={{ y: [-4, 4, -4] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
@@ -140,7 +197,6 @@ export default function VisualLandmarkRouting() {
                 >
                   {directionArrow(lm.direction)}
                 </motion.div>
-                {/* Label */}
                 <div className={`px-3 py-1.5 rounded-xl backdrop-blur-xl border ${
                   selectedLandmark === lm.name
                     ? 'bg-white/90 text-slate-900 border-white/40'
@@ -153,7 +209,6 @@ export default function VisualLandmarkRouting() {
             </motion.div>
           ))}
 
-          {/* Selected landmark card */}
           <AnimatePresence>
             {selectedLandmark && (
               <motion.div
@@ -196,9 +251,7 @@ export default function VisualLandmarkRouting() {
             )}
           </AnimatePresence>
 
-          {/* HUD Overlay */}
           <div className="absolute inset-0 pointer-events-none">
-            {/* Top bar */}
             <div className="absolute top-0 left-0 right-0 p-4 flex items-center justify-between pointer-events-auto">
               <Link
                 href="/"
@@ -213,14 +266,12 @@ export default function VisualLandmarkRouting() {
               </div>
             </div>
 
-            {/* Compass */}
             <div className="absolute top-20 right-4 pointer-events-auto">
               <div className="w-14 h-14 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 flex items-center justify-center">
-                <Compass className="w-6 h-6 text-white" />
+                <MapPin className="w-6 h-6 text-white" />
               </div>
             </div>
 
-            {/* Bottom AR bar */}
             <div className="absolute bottom-6 left-4 right-4 pointer-events-auto">
               <div className="bg-black/40 backdrop-blur-xl rounded-2xl p-3 border border-white/10">
                 <div className="flex items-center justify-between">
