@@ -49,9 +49,6 @@ export default function VisualLandmarkRouting() {
         video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
       });
       streamRef.current = stream;
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
       setCameraStarted(true);
       setCameraReady(true);
     } catch (err: unknown) {
@@ -68,6 +65,12 @@ export default function VisualLandmarkRouting() {
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (cameraReady && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+    }
+  }, [cameraReady]);
 
   useEffect(() => {
     return () => {

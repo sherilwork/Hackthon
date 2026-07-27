@@ -47,9 +47,6 @@ export default function AILostMode() {
         video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } },
       });
       streamRef.current = stream;
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
       setStage('camera');
     } catch (err: unknown) {
       if (err instanceof DOMException) {
@@ -72,6 +69,12 @@ export default function AILostMode() {
       streamRef.current = null;
     }
   }, []);
+
+  useEffect(() => {
+    if (stage === 'camera' && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+    }
+  }, [stage]);
 
   useEffect(() => {
     return () => stopCamera();
