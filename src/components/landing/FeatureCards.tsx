@@ -21,6 +21,7 @@ const features = [
     gradient: 'from-purple-500 to-violet-500',
     bgLight: 'bg-purple-50',
     iconBg: 'bg-gradient-to-br from-purple-500 to-violet-500',
+    href: '/3d-digital-twin',
   },
   {
     icon: Crosshair,
