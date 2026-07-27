@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Map, Box, Crosshair, ScanLine, ArrowUpRight } from 'lucide-react';
+import { Map, Box, Crosshair, ScanLine, ArrowUpRight, Sparkles } from 'lucide-react';
 
 const features = [
   {
@@ -43,6 +43,28 @@ export default function FeatureCards() {
   return (
     <section id="home" className="relative pt-32 pb-16 lg:pt-36 lg:pb-20" style={{ backgroundColor: '#FAFBFF' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
+            Powered by AI
+          </div>
+          <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
+            Navigate Your Campus
+            <br />
+            <span className="text-gradient">Smarter with AI</span>
+          </h1>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Find classrooms, labs, offices and departments instantly using AI-powered indoor navigation, AR guidance and intelligent campus assistance.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((f, i) => (
             <motion.div
