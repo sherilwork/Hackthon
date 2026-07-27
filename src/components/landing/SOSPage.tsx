@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Shield, AlertTriangle, MapPin, Phone, Send, CheckCircle2,
-  Clock, ArrowLeft, Loader2, Bell, User, Building2, ChevronRight, Copy
+  Clock, ArrowLeft, Loader2, Bell, User, Building2, ChevronRight, PhoneCall
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -19,7 +19,6 @@ export default function SOSPage() {
   const [countdown, setCountdown] = useState(5);
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [locError, setLocError] = useState(false);
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -53,12 +52,6 @@ export default function SOSPage() {
 
   const cancelSOS = () => setStage('idle');
   const reset = () => setStage('idle');
-
-  const copyNumber = (phone: string, idx: number) => {
-    navigator.clipboard.writeText(phone);
-    setCopiedIndex(idx);
-    setTimeout(() => setCopiedIndex(null), 2000);
-  };
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-950 via-red-950 to-slate-950">
@@ -258,16 +251,12 @@ export default function SOSPage() {
                     <p className="text-white/40 text-xs">{contact.role}</p>
                     <p className="text-white/30 text-[10px]">{contact.building}</p>
                   </div>
-                  <button
-                    onClick={() => copyNumber(contact.phone, i)}
+                  <a
+                    href={`tel:${contact.phone}`}
                     className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors shrink-0"
                   >
-                    {copiedIndex === i ? (
-                      <CheckCircle2 className="w-4 h-4 text-green-400" />
-                    ) : (
-                      <Copy className="w-4 h-4 text-white/60" />
-                    )}
-                  </button>
+                    <PhoneCall className="w-4 h-4 text-white/60" />
+                  </a>
                 </div>
               ))}
             </div>
