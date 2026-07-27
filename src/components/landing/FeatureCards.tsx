@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Map, Box, Crosshair, ScanLine, ArrowUpRight, Sparkles } from 'lucide-react';
 
 const features = [
@@ -27,6 +28,7 @@ const features = [
     gradient: 'from-amber-500 to-orange-500',
     bgLight: 'bg-amber-50',
     iconBg: 'bg-gradient-to-br from-amber-500 to-orange-500',
+    href: '/lost-mode',
   },
   {
     icon: ScanLine,
@@ -69,39 +71,58 @@ export default function FeatureCards() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {features.map((f, i) => (
-            <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative glass-strong rounded-3xl p-6 shadow-premium hover:shadow-premium-hover transition-all duration-300 cursor-pointer overflow-hidden"
-            >
-              {/* Hover glow */}
-              <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${f.gradient} rounded-full opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
+          {features.map((f, i) => {
+            const cardContent = (
+              <>
+                <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${f.gradient} rounded-full opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500`} />
 
-              <div className={`w-12 h-12 rounded-2xl ${f.iconBg} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                <f.icon className="w-6 h-6 text-white" />
-              </div>
-
-              <h3 className="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
-                {f.title}
-                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
-              </h3>
-
-              <p className="text-sm text-slate-500 leading-relaxed">
-                {f.description}
-              </p>
-
-              {f.extra && (
-                <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                  Emergency Ready
+                <div className={`w-12 h-12 rounded-2xl ${f.iconBg} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <f.icon className="w-6 h-6 text-white" />
                 </div>
-              )}
-            </motion.div>
-          ))}
+
+                <h3 className="text-base font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  {f.title}
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                </h3>
+
+                <p className="text-sm text-slate-500 leading-relaxed">
+                  {f.description}
+                </p>
+
+                {f.extra && (
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                    Emergency Ready
+                  </div>
+                )}
+              </>
+            );
+
+            return f.href ? (
+              <Link key={f.title} href={f.href}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                  className="group relative glass-strong rounded-3xl p-6 shadow-premium hover:shadow-premium-hover transition-all duration-300 cursor-pointer overflow-hidden"
+                >
+                  {cardContent}
+                </motion.div>
+              </Link>
+            ) : (
+              <motion.div
+                key={f.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="group relative glass-strong rounded-3xl p-6 shadow-premium hover:shadow-premium-hover transition-all duration-300 cursor-pointer overflow-hidden"
+              >
+                {cardContent}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
