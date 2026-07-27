@@ -1,7 +1,6 @@
 import Navbar from '@/components/landing/Navbar';
 import FeatureCards from '@/components/landing/FeatureCards';
 import SmartRoutePlanner from '@/components/landing/SmartRoutePlanner';
-import AILostMode from '@/components/landing/AILostMode';
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <Navbar />
       <FeatureCards />
       <SmartRoutePlanner />
-      <AILostMode />
     </main>
   );
 }
