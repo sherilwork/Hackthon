@@ -34,11 +34,12 @@ const features = [
   },
   {
     icon: ScanLine,
-    title: 'Scan & Go + SOS',
-    description: 'Scan QR codes for instant navigation. One-tap SOS alerts campus security.',
-    gradient: 'from-green-500 to-emerald-500',
-    bgLight: 'bg-green-50',
-    iconBg: 'bg-gradient-to-br from-green-500 to-emerald-500',
+    title: 'SOS Emergency',
+    description: 'One-tap emergency alert with real-time location sharing to campus security.',
+    gradient: 'from-red-500 to-rose-600',
+    bgLight: 'bg-red-50',
+    iconBg: 'bg-gradient-to-br from-red-500 to-rose-600',
+    href: '/sos',
     extra: true,
   },
 ];
