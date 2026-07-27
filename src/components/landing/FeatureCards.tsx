@@ -54,11 +54,14 @@ export default function FeatureCards() {
             <Sparkles className="w-4 h-4" />
             Powered by AI
           </div>
-          <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-4 tracking-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 mb-3 tracking-tight">
             Navigate Your Campus
             <br />
             <span className="text-gradient">Smarter with AI</span>
           </h1>
+          <p className="text-base text-slate-400 font-medium mb-6 tracking-wide">
+            &ldquo;Never Ask for Directions Again.&rdquo;
+          </p>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Find classrooms, labs, offices and departments instantly using AI-powered indoor navigation, AR guidance and intelligent campus assistance.
           </p>
