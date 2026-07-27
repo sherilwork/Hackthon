@@ -23,7 +23,7 @@ const features = [
   {
     icon: Crosshair,
     title: 'AI Lost Mode',
-    description: 'Point your camera anywhere — AI identifies your exact location using computer vision.',
+    description: "Don't know where you are? Open camera, point at any sign and AI will identify your location.",
     gradient: 'from-amber-500 to-orange-500',
     bgLight: 'bg-amber-50',
     iconBg: 'bg-gradient-to-br from-amber-500 to-orange-500',
